@@ -20,16 +20,11 @@ DEPEND="media-libs/fontconfig"
 RDEPEND="${DEPEND}"
 BDEPEND=""
 
-S=${WORKDIR}/${P}
-
 src_unpack() {
-    #unzip ${DISTDIR}/${_PAC_NAME}.zip ${WORKDIR}/${P} || die "unpack failed"
-    #unpack ${A}
-    mkdir ${S}
-    unzip ${_PAC_NAME}.zip -d ${S}
+    unpack ${A}
 }
 
 src_install() {
-    install -dm755 "${D}/usr/share/fonts/TTF"
-    find . -iname "*.ttf" -not -iname "*Windows Compatible.ttf" -execdir install -m644 {} "${D}/usr/share/fonts/TTF/{}"
+    #install -dm755 /usr/share/fonts/TTF
+    find ${WORKDIR} -iname "*.ttf" -not -iname "*Windows Compatible.ttf" -execdir cp ${WORKDIR}/* "${D}/usr/share/fonts/TTF/"
 }
