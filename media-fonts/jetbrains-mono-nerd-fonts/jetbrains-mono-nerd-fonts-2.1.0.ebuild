@@ -22,8 +22,9 @@ BDEPEND=""
 
 src_unpack() {
     #unzip ${DISTDIR}/${_PAC_NAME}.zip ${WORKDIR}/${P} || die "unpack failed"
-    unpack ${A}
-    #mv ${S}/source/* ${S}/
+    #unpack ${A}
+    mkdir ${S}
+    unzip ${_PAC_NAME}.zip -d ${S}
 }
 
 src_install() {
