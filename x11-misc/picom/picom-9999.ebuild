@@ -42,6 +42,6 @@ BDEPEND="dev-util/meson
 
 src_install() {
     meson --buildtype=release . build --prefix=/usr -Dwith_docs=true
-    ninja -C build
-    ninja -C build install
+    ninja -v -C build
+    DESTDIR="${D}" ninja -C build install
 }
