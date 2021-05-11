@@ -21,12 +21,13 @@ RDEPEND="${DEPEND}"
 BDEPEND=""
 
 src_unpack() {
-    mkdir ${S}
-    unpack ${A} ${S}
+    #mkdir ${S}
+    #unpack ${A} ${S}
+    unzip ${DISTDIR}/${_PAC_NAME}.zip -d ${WORKDIR}
 }
 
 src_install() {
     install -dm755 "${D}/usr/share/fonts/TTF2"
-    find . -iname "*.ttf" -not -iname "*Windows Compatible.ttf" \
+    find ${WORKDIR}/ -iname "*.ttf" -not -iname "*Windows Compatible.ttf" \
 	    -execdir install -m644 {} "$pkgdir/usr/share/fonts/TTF/{}" \;
 }
