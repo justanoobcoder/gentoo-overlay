@@ -39,19 +39,18 @@ DEPEND="${COMMON_DEPEND}
 RESTRICT="test" # virtualx.eclass: 1 of 1: FAIL: test-modules
 
 src_prepare() {
-	default
-	sed -i -e 's:noinst_PROG:check_PROG:' tests/Makefile.am || die
-	restore_config src/{bubble,defaults,dnd}.c #428134
-	mv configure.in configure.ac || die
-	eautoreconf
+    NOCONFIGURE=1 ./autogen.sh
 }
 
-src_configure() {
-	econf --libexecdir="/usr/$(get_libdir)/${PN}"
-}
+#src_configure() {
+	#econf --libexecdir="/usr/$(get_libdir)/${PN}"
+#}
 
 src_install() {
-	default
+    ./autogen.sh --prefix=/usr --sysconfdir=/etc --localstatedir=/var --libexecdir=/usr/lib/$pkgname \
+		--disable-static --disable-schemas-compile
+    make
+    make DESTDIR="${D}" install
 	save_config src/{bubble,defaults,dnd}.c
 	rm -f "${ED}"/usr/share/${PN}/icons/*/*/*/README
 }
