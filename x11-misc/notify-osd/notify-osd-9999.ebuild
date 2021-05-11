@@ -34,34 +34,11 @@ BDEPEND="dev-util/glib-utils
 	    virtual/pkgconfig"
 
 src_prepare() {
-	default
-	sed -i -e 's:noinst_PROG:check_PROG:' tests/Makefile.am || die
-	restore_config src/{bubble,defaults,dnd}.c #428134
-	mv configure.in configure.ac || die
-	eautoreconf
-}
-
-src_configure() {
-	econf --libexecdir="/usr/$(get_libdir)/${PN}"
+    ./autogen.sh --prefix=/usr --sysconfdir=/etc --localstatedir=/var --libexecdir=/usr/lib/${PN} \
+		--disable-static --disable-schemas-compile
+    make
 }
 
 src_install() {
-	default
-	save_config src/{bubble,defaults,dnd}.c
-	rm -f "${ED}"/usr/share/${PN}/icons/*/*/*/README
-}
-
-pkg_preinst() {
-	gnome2_icon_savelist
-	gnome2_schemas_savelist
-}
-
-pkg_postinst() {
-	gnome2_icon_cache_update
-	gnome2_schemas_update
-}
-
-pkg_postrm() {
-	gnome2_icon_cache_update
-	gnome2_schemas_update
+    make DESTDIR=${D} install || die "make install failed" 
 }
