@@ -36,4 +36,5 @@ src_install() {
 		--disable-static --disable-schemas-compile
     make
     make DESTDIR=${D} install || die "make install failed" 
+    rm -f "${ED}"/usr/share/${PN}/icons/*/*/*/README
 }
