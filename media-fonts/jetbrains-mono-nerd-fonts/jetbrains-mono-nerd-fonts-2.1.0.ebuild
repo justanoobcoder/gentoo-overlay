@@ -3,6 +3,8 @@
  
 EAPI=7
  
+inherit unpacker
+
 DESCRIPTION="A Nerd Font patched version of JetBrains Mono."
 HOMEPAGE="https://github.com/ryanoasis/nerd-fonts"
 
