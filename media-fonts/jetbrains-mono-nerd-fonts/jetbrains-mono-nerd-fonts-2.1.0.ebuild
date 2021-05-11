@@ -6,7 +6,8 @@ EAPI=7
 DESCRIPTION="A Nerd Font patched version of JetBrains Mono."
 HOMEPAGE="https://github.com/ryanoasis/nerd-fonts"
 
-SRC_URI="https://github.com/ryanoasis/nerd-fonts/releases/download/v${PV}/JetBrainsMono.zip -> ${P}.zip"
+_PAC_NAME="JetBrainsMono"
+SRC_URI="https://github.com/ryanoasis/nerd-fonts/releases/download/v${PV}/${_PAC_NAME}.zip"
  
 LICENSE="MIT"
 SLOT="0"
@@ -18,7 +19,7 @@ RDEPEND="${DEPEND}"
 BDEPEND=""
 
 src_unpack() {
-    unzip ${P}.zip || die "unpack failed"
+    unzip ${_PAC_NAME}.zip || die "unpack failed"
 }
 
 src_install() {
