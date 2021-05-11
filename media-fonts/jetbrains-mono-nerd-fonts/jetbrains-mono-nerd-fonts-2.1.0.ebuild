@@ -21,6 +21,7 @@ RDEPEND="${DEPEND}"
 BDEPEND=""
 
 src_unpack() {
+    mkdir ${WORKDIR}/${P}
     unpack ${A} ${WORKDIR}/${P}
 }
 
