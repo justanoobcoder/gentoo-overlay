@@ -50,6 +50,13 @@ BDEPEND="${LUA_DEPS}
         virtual/libintl
         virtual/pkgconfig
         dev-util/gperf"
+src_prepare() {
+	# use our system vim dir
+	sed -e "/^# define SYS_VIMRC_FILE/s|\$VIM|${EPREFIX}/etc/vim|" \
+		-i src/nvim/globals.h || die
+
+	cmake_src_prepare
+}
 
 src_install() {
     make CMAKE_BUILD_TYPE=Release install
