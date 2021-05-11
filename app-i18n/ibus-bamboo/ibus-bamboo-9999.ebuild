@@ -18,7 +18,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
 
-S="${WORKDIR}/${PN}-${P}"
+#S="${WORKDIR}/${PN}-${P}"
  
 DEPEND="app-i18n/ibus"
 RDEPEND="${DEPEND}
