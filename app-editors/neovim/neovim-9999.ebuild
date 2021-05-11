@@ -15,9 +15,9 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/${PN}/${PN}.git"
 else
 	SRC_URI="https://github.com/${PN}/${PN}/archive/refs/tags/nightly.tar.gz -> ${P}.tar.gz"
-    KEYWORDS="amd64 ~arm ~arm64 x86 ~x64-macos"
 fi
 
+KEYWORDS="amd64 ~arm ~arm64 x86 ~x64-macos"
 LICENSE="Apache-2.0 vim"
 SLOT="0"
 IUSE="+lto +nvimpager +tui"
