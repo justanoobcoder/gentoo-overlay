@@ -19,7 +19,7 @@ RDEPEND="${DEPEND}"
 BDEPEND=""
 
 src_unpack() {
-    unzip ${DISTDIR}/${_PAC_NAME}.zip ${WORKDIR} || die "unpack failed"
+    unzip ${DISTDIR}/${_PAC_NAME}.zip ${WORKDIR}/${P} || die "unpack failed"
 }
 
 src_install() {
