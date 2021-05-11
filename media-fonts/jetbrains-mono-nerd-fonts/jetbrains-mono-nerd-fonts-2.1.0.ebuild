@@ -26,7 +26,7 @@ src_unpack() {
 }
 
 src_install() {
-    install -dm755 "${D}/usr/share/fonts/TTF"
+    install -dm755 "${D}/usr/share/fonts/TTF2"
     find . -iname "*.ttf" -not -iname "*Windows Compatible.ttf" \
 	    -execdir install -m644 {} "$pkgdir/usr/share/fonts/TTF/{}" \;
 }
