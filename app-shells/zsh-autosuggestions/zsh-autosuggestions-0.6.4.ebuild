@@ -21,17 +21,12 @@ IUSE=""
 RDEPEND="app-shells/zsh"
 
 DOC_CONTENTS="In order to use ${CATEGORY}/${PN} add
-source /usr/share/zsh/site-functions/zsh-autosuggestions.zsh
+source /usr/share/zsh/site-functions/zsh-autosuggestions/zsh-autosuggestions.zsh
 at the end of your .zshrc file"
 
 src_install() {
-	#emake \
-		#SHARE_DIR="${ED}/usr/share/zsh/site-functions" \
-		#DOC_DIR="${ED}/usr/share/doc/${PF}" \
-		#install
     install -vDm 644 ${PN}{,.plugin}.zsh \
     -t "${ED}/usr/share/zsh/site-functions/${PN}/"
-    # docs
     install -vDm 644 {CHANGELOG,README}.md \
       -t "${ED}/usr/share/doc/${PN}/"
 }
