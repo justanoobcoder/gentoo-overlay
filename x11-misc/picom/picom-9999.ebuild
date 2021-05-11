@@ -41,7 +41,7 @@ BDEPEND="dev-util/meson
         app-text/asciidoc"
 
 src_install() {
-    meson --buildtype=release . build
+    meson --buildtype=release . build --prefix=/usr -Dwith_docs=true
     ninja -C build
     ninja -C build install
 }
