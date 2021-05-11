@@ -38,9 +38,9 @@ DEPEND="${COMMON_DEPEND}
 
 RESTRICT="test" # virtualx.eclass: 1 of 1: FAIL: test-modules
 
-src_prepare() {
-    NOCONFIGURE=1 ./autogen.sh
-}
+#src_prepare() {
+    #NOCONFIGURE=1 ./autogen.sh
+#}
 
 #src_configure() {
 	#econf --libexecdir="/usr/$(get_libdir)/${PN}"
