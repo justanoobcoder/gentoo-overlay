@@ -6,10 +6,8 @@ EAPI=7
 DESCRIPTION="Canonical's on-screen-display notification agent."
 HOMEPAGE="https://launchpad.net/notify-osd"
 
-if [[ ${PV} == 9999 ]]; then
-	inherit git-r3
-	EGIT_REPO_URI="https://github.com/justanoobcoder/notify-osd.git"
-fi
+inherit git-r3
+EGIT_REPO_URI="https://github.com/justanoobcoder/notify-osd.git"
  
 LICENSE="GPL-3"
 SLOT="0"
@@ -33,12 +31,9 @@ BDEPEND="dev-util/glib-utils
 	    x11-base/xorg-proto
 	    virtual/pkgconfig"
 
-src_prepare() {
+src_install() {
     ./autogen.sh --prefix=/usr --sysconfdir=/etc --localstatedir=/var --libexecdir=/usr/lib/${PN} \
 		--disable-static --disable-schemas-compile
     make
-}
-
-src_install() {
     make DESTDIR=${D} install || die "make install failed" 
 }
