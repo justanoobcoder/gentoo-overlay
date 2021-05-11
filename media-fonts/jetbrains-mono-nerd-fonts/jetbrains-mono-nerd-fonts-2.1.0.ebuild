@@ -3,7 +3,7 @@
  
 EAPI=7
  
-inherit unpacker
+#inherit unpacker
 
 DESCRIPTION="A Nerd Font patched version of JetBrains Mono."
 HOMEPAGE="https://github.com/ryanoasis/nerd-fonts"
@@ -22,7 +22,8 @@ BDEPEND=""
 
 src_unpack() {
     #unzip ${DISTDIR}/${_PAC_NAME}.zip ${WORKDIR}/${P} || die "unpack failed"
-    unpack_makeself ${DISTDIR}/${_PAC_NAME}.zip
+    unpack ${A}
+    mv ${S}/source/* ${S}/
 }
 
 src_install() {
