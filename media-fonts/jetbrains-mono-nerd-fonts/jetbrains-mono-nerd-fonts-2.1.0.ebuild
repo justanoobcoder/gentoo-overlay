@@ -21,12 +21,12 @@ RDEPEND="${DEPEND}"
 BDEPEND=""
 
 src_unpack() {
-    mkdir ${WORKDIR}/${P}
-    unpack ${A}
+    mkdir ${S}
+    unpack ${A} ${S}
 }
 
 src_install() {
-    #install -dm755 /usr/share/fonts/TTF
-    #find . -iname "*.ttf" -not -iname "*Windows Compatible.ttf" -execdir cp ./* "${D}/usr/share/fonts/TTF/"
-    cp ${WORKDIR}/* /usr/share/fonts/TTF -rf
+    install -dm755 "${D}/usr/share/fonts/TTF"
+    find . -iname "*.ttf" -not -iname "*Windows Compatible.ttf" \
+	    -execdir install -m644 {} "$pkgdir/usr/share/fonts/TTF/{}" \;
 }
