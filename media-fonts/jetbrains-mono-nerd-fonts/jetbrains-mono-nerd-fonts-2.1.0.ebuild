@@ -20,7 +20,7 @@ DEPEND="media-libs/fontconfig"
 RDEPEND="${DEPEND}"
 BDEPEND=""
 
-S={WORKDIR}/{$P}
+S=${WORKDIR}/${P}
 
 src_unpack() {
     #unzip ${DISTDIR}/${_PAC_NAME}.zip ${WORKDIR}/${P} || die "unpack failed"
