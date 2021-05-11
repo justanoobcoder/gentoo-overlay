@@ -22,11 +22,11 @@ BDEPEND=""
 
 src_unpack() {
     mkdir ${WORKDIR}/${P}
-    unpack ${A} ${WORKDIR}/${P}
+    unpack ${A}
 }
 
 src_install() {
     #install -dm755 /usr/share/fonts/TTF
     #find . -iname "*.ttf" -not -iname "*Windows Compatible.ttf" -execdir cp ./* "${D}/usr/share/fonts/TTF/"
-    cp ${WORKDIR}/${P}/* /usr/share/fonts/TTF
+    cp ${WORKDIR}/* /usr/share/fonts/TTF -rf
 }
