@@ -18,7 +18,7 @@ RDEPEND="${DEPEND}"
 BDEPEND=""
 
 src_unpack() {
-    unzip "${DISTDIR}/${P}.zip" "${WORKDIR}" || die "unpack failed"
+    unzip ${P}.zip ${WORKDIR} || die "unpack failed"
 }
 
 src_install() {
