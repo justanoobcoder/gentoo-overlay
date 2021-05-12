@@ -4,18 +4,13 @@
 EAPI=7
 
 LUA_COMPAT=( lua5-{1..2} luajit )
-
-inherit cmake lua-single optfeature xdg
+inherit lua-single
 
 DESCRIPTION="Vim-fork focused on extensibility and agility."
 HOMEPAGE="https://neovim.io/"
 
-if [[ ${PV} == 9999 ]]; then
-	inherit git-r3
-	EGIT_REPO_URI="https://github.com/${PN}/${PN}.git"
-else
-	SRC_URI="https://github.com/${PN}/${PN}/archive/refs/tags/nightly.tar.gz -> ${P}.tar.gz"
-fi
+inherit git-r3
+EGIT_REPO_URI="https://github.com/${PN}/${PN}.git"
 
 KEYWORDS="amd64 ~arm ~arm64 x86 ~x64-macos"
 LICENSE="Apache-2.0 vim"
@@ -50,13 +45,6 @@ BDEPEND="${LUA_DEPS}
         virtual/libintl
         virtual/pkgconfig
         dev-util/gperf"
-src_prepare() {
-	# use our system vim dir
-	sed -e "/^# define SYS_VIMRC_FILE/s|\$VIM|${EPREFIX}/etc/vim|" \
-		-i src/nvim/globals.h || die
-
-	cmake_src_prepare
-}
 
 src_install() {
     make CMAKE_BUILD_TYPE=Release install
