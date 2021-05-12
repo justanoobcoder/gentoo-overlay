@@ -14,6 +14,7 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/${PN}/${PN}.git"
 else
 	SRC_URI="https://github.com/${PN}/${PN}/archive/refs/tags/nightly.tar.gz -> ${P}.tar.gz"
+	S="${WORKDIR}/neovim-nightly"
 fi
 
 KEYWORDS="~amd64 ~arm ~arm64 x86 ~x64-macos"
