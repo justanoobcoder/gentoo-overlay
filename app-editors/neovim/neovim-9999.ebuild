@@ -51,9 +51,9 @@ BDEPEND="${LUA_DEPS}
         dev-util/gperf"
 
 src_compile() {
-	make CMAKE_BUILD_TYPE=Release
+	make CMAKE_BUILD_TYPE=Release || die "compile failed"
 }
 
 src_install() {
-	make DESTDIR=${D} install
+	make DESTDIR=${D} install || die "install failed"
 }
