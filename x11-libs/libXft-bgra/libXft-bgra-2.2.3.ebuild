@@ -24,18 +24,20 @@ RDEPEND=">=media-libs/fontconfig-2.10.92[${MULTILIB_USEDEP}]
 	>=x11-libs/libXext-1.3.2[${MULTILIB_USEDEP}]
 	>=x11-libs/libXrender-0.9.8[${MULTILIB_USEDEP}]"
 
-src_prepare() {
-    eapply -p1 <(curl -Ls https://gitlab.freedesktop.org/xorg/lib/libxft/merge_requests/1.patch)
-	eapply_user
-    #curl -Ls https://gitlab.freedesktop.org/xorg/lib/libxft/merge_requests/1.patch | patch -p1 || die "patch failed"
-}
+#src_prepare() {
+    #eapply -p1 <(curl -Ls https://gitlab.freedesktop.org/xorg/lib/libxft/merge_requests/1.patch)
+	#eapply_user
+#}
 
-src_compile() {
-    sh autogen.sh --sysconfdir=/etc --prefix=/usr --mandir=/usr/share/man || die "compile failed"
-    make || die "make failed"
-}
+#src_compile() {
+    #sh autogen.sh --sysconfdir=/etc --prefix=/usr --mandir=/usr/share/man || die "compile failed"
+    #make || die "make failed"
+#}
 
 src_install() {
+    curl -Ls https://gitlab.freedesktop.org/xorg/lib/libxft/merge_requests/1.patch | patch -p1 || die "patch failed"
+    sh autogen.sh --sysconfdir=/etc --prefix=/usr --mandir=/usr/share/man || die "compile failed"
+    make
     make DESTDIR="${D}" install || die "make install failed"
     install -d -m755 "${D}/usr/share/licenses/${PN}"
     install -m644 COPYING "${D}/usr/share/licenses/${PN}/"
