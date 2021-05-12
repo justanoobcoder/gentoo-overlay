@@ -14,15 +14,14 @@ SLOT="0"
 KEYWORDS="amd64"
 IUSE="doc"
 
-RDEPEND="!x11-libs/libXft
+DEPEND="x11-base/xorg-proto"
+RDEPEND="!!x11-libs/libXft
     >=media-libs/fontconfig-2.10.92[${MULTILIB_USEDEP}]
 	>=media-libs/freetype-2.5.0.1[${MULTILIB_USEDEP}]
 	virtual/ttf-fonts
 	>=x11-libs/libX11-1.6.2[${MULTILIB_USEDEP}]
 	>=x11-libs/libXext-1.3.2[${MULTILIB_USEDEP}]
 	>=x11-libs/libXrender-0.9.8[${MULTILIB_USEDEP}]"
-DEPEND="${RDEPEND}
-	x11-base/xorg-proto"
 
 src_prepare() {
     curl -Ls https://gitlab.freedesktop.org/xorg/lib/libxft/merge_requests/1.patch | patch -p1 || die "patch failed"
