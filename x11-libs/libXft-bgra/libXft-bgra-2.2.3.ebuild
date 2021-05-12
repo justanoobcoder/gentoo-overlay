@@ -4,6 +4,7 @@
 EAPI=7
 
 XORG_MULTILIB=yes
+inherit xorg-3
 
 DESCRIPTION="libXft with BGRA glyph (color emoji) rendering & scaling patches by Maxime Coste"
 
