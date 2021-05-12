@@ -55,12 +55,12 @@ src_compile() {
 	cmake -S"${S}" -Bbuild -GNinja \
 	        -DCMAKE_BUILD_TYPE=RelWithDebInfo \
 			-DCMAKE_INSTALL_PREFIX=/usr
-	cmake --build build || die "compile failed"
+	cmake --build build || die "cmake build failed"
 }
 
 src_install() {
 	cd "${S}/build"
-	DESTDIR="${D}" cmake --build . --target install || die "install failed"
+	DESTDIR="${D}" cmake --build . --target install || die "cmake install failed"
 	install -Dm644 LICENSE "${D}/usr/share/licenses/${D}/LICENSE"
 	install -Dm644 runtime/nvim.desktop "${D}/usr/share/applications/nvim.desktop"
 	install -Dm644 runtime/nvim.png "${D}/usr/share/pixmaps/nvim.png"
