@@ -50,12 +50,10 @@ BDEPEND="${LUA_DEPS}
         virtual/pkgconfig
         dev-util/gperf"
 
-S="${WORKDIR}/neovim-999"
-
 src_compile() {
-	make CMAKE_BUILD_TYPE=RelWithDebInfo
+	make CMAKE_BUILD_TYPE=Release
 }
 
 src_install() {
-	make install
+	make DESTDIR=${D} install
 }
