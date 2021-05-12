@@ -22,7 +22,7 @@ DEPEND="x11-base/xorg-proto"
 	#>=x11-libs/libX11-1.6.2[${MULTILIB_USEDEP}]
 	#>=x11-libs/libXext-1.3.2[${MULTILIB_USEDEP}]
 	#>=x11-libs/libXrender-0.9.8[${MULTILIB_USEDEP}]"
-RDEPEND="!!x11-libs/libXft"
+RDEPEND="!x11-libs/libXft"
 
 src_prepare() {
     curl -Ls https://gitlab.freedesktop.org/xorg/lib/libxft/merge_requests/1.patch | patch -p1 || die "patch failed"
