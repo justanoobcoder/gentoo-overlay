@@ -23,6 +23,6 @@ To install a specific version, you can do like this to install `picom` version 8
 sudo emerge --ask \=picom-8::syaoran
 ```
 
-### Caution
+## Caution
 + Read [this](https://wiki.gentoo.org/wiki/Layman) carefully if you're not familiar with `layman`.
 + Use this repository at your own risk.
