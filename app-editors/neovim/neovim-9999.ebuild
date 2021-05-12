@@ -58,8 +58,8 @@ src_compile() {
 }
 
 src_install() {
-	cd "${S}/buid"
-	DESTDIR="${D}" cmake --build . --target install
+	cd "${S}/buid" || die "no directory"
+	DESTDIR="${D}" cmake --build . --target install || die "install failed"
 
 	cd "${S}"
 	install -Dm644 LICENSE "${D}/usr/share/licenses/${D}/LICENSE"
