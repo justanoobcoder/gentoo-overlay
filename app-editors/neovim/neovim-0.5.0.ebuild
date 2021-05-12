@@ -6,7 +6,7 @@ EAPI=7
 LUA_COMPAT=( lua5-{1..2} luajit )
 inherit lua-single
 
-DESCRIPTION="Vim-fork focused on extensibility and agility."
+DESCRIPTION="Vim-fork focused on extensibility and agility (nightly version)."
 HOMEPAGE="https://neovim.io/"
 
 if [[ ${PV} == 9999 ]]; then
@@ -16,7 +16,7 @@ else
 	SRC_URI="https://github.com/${PN}/${PN}/archive/refs/tags/nightly.tar.gz -> ${P}.tar.gz"
 fi
 
-KEYWORDS="amd64 ~arm ~arm64 x86 ~x64-macos"
+KEYWORDS="~amd64 ~arm ~arm64 x86 ~x64-macos"
 LICENSE="Apache-2.0 vim"
 SLOT="0"
 IUSE="+lto +nvimpager +tui"
@@ -51,9 +51,17 @@ BDEPEND="${LUA_DEPS}
         dev-util/gperf"
 
 src_compile() {
-	make CMAKE_BUILD_TYPE=RelWithDebInfo
+	cmake -S"${S}" -Bbuild -GNinja \
+	        -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+			-DCMAKE_INSTALL_PREFIX=/usr \
+			die "compile failed"
+	cmake --build build
 }
 
 src_install() {
-	make install
+	cd "${S}/build"
+	DESTDIR="${D}" cmake --build . --target install || die "install failed"
+	install -Dm644 LICENSE "${D}/usr/share/licenses/${D}/LICENSE"
+	install -Dm644 runtime/nvim.desktop "${D}/usr/share/applications/nvim.desktop"
+	install -Dm644 runtime/nvim.png "${D}/usr/share/pixmaps/nvim.png"
 }

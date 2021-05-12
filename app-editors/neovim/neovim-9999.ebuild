@@ -6,7 +6,7 @@ EAPI=7
 LUA_COMPAT=( lua5-{1..2} luajit )
 inherit lua-single
 
-DESCRIPTION="Vim-fork focused on extensibility and agility."
+DESCRIPTION="Vim-fork focused on extensibility and agility (nightly version)."
 HOMEPAGE="https://neovim.io/"
 
 if [[ ${PV} == 9999 ]]; then
@@ -16,7 +16,7 @@ else
 	SRC_URI="https://github.com/${PN}/${PN}/archive/refs/tags/nightly.tar.gz -> ${P}.tar.gz"
 fi
 
-KEYWORDS="amd64 ~arm ~arm64 x86 ~x64-macos"
+KEYWORDS="~amd64 ~arm ~arm64 x86 ~x64-macos"
 LICENSE="Apache-2.0 vim"
 SLOT="0"
 IUSE="+lto +nvimpager +tui"
@@ -53,7 +53,8 @@ BDEPEND="${LUA_DEPS}
 src_compile() {
 	cmake -S"${S}" -Bbuild -GNinja \
 	        -DCMAKE_BUILD_TYPE=RelWithDebInfo \
-			-DCMAKE_INSTALL_PREFIX=/usr
+			-DCMAKE_INSTALL_PREFIX=/usr \
+			die "compile failed"
 	cmake --build build
 }
 
