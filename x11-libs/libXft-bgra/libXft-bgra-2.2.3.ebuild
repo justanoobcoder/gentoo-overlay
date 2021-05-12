@@ -25,7 +25,9 @@ RDEPEND=">=media-libs/fontconfig-2.10.92[${MULTILIB_USEDEP}]
 	>=x11-libs/libXrender-0.9.8[${MULTILIB_USEDEP}]"
 
 src_prepare() {
-    curl -Ls https://gitlab.freedesktop.org/xorg/lib/libxft/merge_requests/1.patch | patch -p1 || die "patch failed"
+    eapply -p1 <(curl -Ls https://gitlab.freedesktop.org/xorg/lib/libxft/merge_requests/1.patch)
+	eapply_user
+    #curl -Ls https://gitlab.freedesktop.org/xorg/lib/libxft/merge_requests/1.patch | patch -p1 || die "patch failed"
 }
 
 src_compile() {
