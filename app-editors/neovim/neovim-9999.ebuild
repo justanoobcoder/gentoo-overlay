@@ -58,6 +58,7 @@ src_compile() {
 }
 
 src_install() {
+	cd "${S}/build"
 	DESTDIR="${D}" cmake --build . --target install || die "install failed"
 	install -Dm644 LICENSE "${D}/usr/share/licenses/${D}/LICENSE"
 	install -Dm644 runtime/nvim.desktop "${D}/usr/share/applications/nvim.desktop"
