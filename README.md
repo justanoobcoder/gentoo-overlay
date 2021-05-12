@@ -1,2 +1,28 @@
-# gentoo-overlay
-My gentoo overlay repository
+# Syaoran's Gentoo overlay repository
+This is my Gentoo overlay repository that contains needed packages (for me) which are not available in Gentoo main repository.
+
+## Packages
+These are packages which are included in this overlay repository:
++ app-editors/neovim: neovim nightly version - the lastest dev version (0.5.0)
++ app-i18n/ibus-bamboo: Vietnamese characters typing support
++ media-fonts/jetbrains-mono-nerd-fonts: Nerd Font patched version of JetBrains Mono
++ x11-misc/picom: picom fork which provides rounded corners, animation features when moving tiling windows
++ app-shells/zsh-autosuggestions: Fish-like fast/unobtrusive autosuggestions for zsh
+
+## How to use
+To install above packages, install `app-portage/layman` first, then run this command:
+```
+sudo layman -o https://raw.githubusercontent.com/justanoobcoder/gentoo-overlay/master/repositories.xml -f -a syaoran
+```
+After that, you can install those packages using `emerge`, for example:
+```
+sudo emerge --ask picom::syaoran
+```
+To install a specific version, you can do like this to install `picom` version 8:
+```
+sudo emerge --ask \=picom-8::syaoran
+```
+
+### Caution
++ Read [this](https://wiki.gentoo.org/wiki/Layman) carefully if you're not familiar with `layman`.
++ Use this repository at your own risk.
