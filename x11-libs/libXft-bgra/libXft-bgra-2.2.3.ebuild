@@ -11,6 +11,7 @@ DESCRIPTION="libXft with BGRA glyph (color emoji) rendering & scaling patches by
 HOMEPAGE="https://gitlab.freedesktop.org/xorg/lib/libxft"
 
 SRC_URI="https://gitlab.freedesktop.org/xorg/lib/libxft/-/archive/master/libxft-master.tar.gz"
+S="${WORKDIR}/libxft-master"
 SLOT="0"
 KEYWORDS="amd64"
 IUSE="doc"
