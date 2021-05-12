@@ -45,6 +45,8 @@ BDEPEND="${LUA_DEPS}
         virtual/pkgconfig
         dev-util/gperf"
 
+S="${WORKDIR}/nvim-linux64"
+
 src_install() {
     #make CMAKE_BUILD_TYPE=Release install
 	mkdir -p "${D}/usr/bin"
