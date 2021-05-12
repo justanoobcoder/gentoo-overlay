@@ -58,7 +58,7 @@ src_compile() {
 }
 
 src_install() {
-	cd "${S}/build"
+	cd "${S}/buid"
 	DESTDIR="${D}" cmake --build . --target install
 
 	cd "${S}"
