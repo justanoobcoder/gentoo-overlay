@@ -26,3 +26,6 @@ sudo emerge --ask \=picom-8::syaoran
 ## Caution
 + Read [this](https://wiki.gentoo.org/wiki/Layman) carefully if you're not familiar with `layman`.
 + Use this repository at your own risk.
+
+## Issue
+If there are any bugs, broken packages or you don't know how to use those packages, feel free to create an [issue](https://github.com/justanoobcoder/gentoo-overlay/issues/new/choose).
