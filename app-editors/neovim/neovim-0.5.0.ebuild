@@ -54,9 +54,8 @@ BDEPEND="${LUA_DEPS}
 src_compile() {
 	cmake -S"${S}" -Bbuild -GNinja \
 	        -DCMAKE_BUILD_TYPE=RelWithDebInfo \
-			-DCMAKE_INSTALL_PREFIX=/usr \
-			die "compile failed"
-	cmake --build build
+			-DCMAKE_INSTALL_PREFIX=/usr
+	cmake --build build || die "compile failed"
 }
 
 src_install() {
