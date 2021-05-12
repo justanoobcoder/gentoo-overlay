@@ -9,8 +9,7 @@ inherit lua-single
 DESCRIPTION="Vim-fork focused on extensibility and agility."
 HOMEPAGE="https://neovim.io/"
 
-inherit git-r3
-EGIT_REPO_URI="https://github.com/${PN}/${PN}.git"
+SRC_URI="https://github.com/${PN}/${PN}/releases/download/nightly/nvim-linux64.tar.gz"
 
 KEYWORDS="amd64 ~arm ~arm64 x86 ~x64-macos"
 LICENSE="Apache-2.0 vim"
@@ -47,5 +46,9 @@ BDEPEND="${LUA_DEPS}
         dev-util/gperf"
 
 src_install() {
-    make CMAKE_BUILD_TYPE=Release install
+    #make CMAKE_BUILD_TYPE=Release install
+	mkdir -p "${D}/usr/bin"
+	cp -r lib "${D}/usr/"
+	cp -r share "${D}/usr/"
+	install bin/nvim "${D}/usr/bin"
 }
