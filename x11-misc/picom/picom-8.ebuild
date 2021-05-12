@@ -40,8 +40,11 @@ BDEPEND="dev-util/meson
         dev-libs/uthash
         app-text/asciidoc"
 
+src_compile() {
+    meson --buildtype=release . build --prefix=/usr -Dwith_docs=true || die "meson build failed"
+    ninja -C build || die "ninja build failed"
+}
+
 src_install() {
-    meson --buildtype=release . build --prefix=/usr -Dwith_docs=true
-    ninja -C build
-    DESTDIR=${D} ninja -C build install
+    DESTDIR=${D} ninja -C build install || die "ninja build install failed"
 }
