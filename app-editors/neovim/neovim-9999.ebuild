@@ -51,17 +51,14 @@ BDEPEND="${LUA_DEPS}
         dev-util/gperf"
 
 src_compile() {
-	cmake -S"${PN}" -Bbuild -GNinja \
+	cmake -S"${S}" -Bbuild -GNinja \
 	        -DCMAKE_BUILD_TYPE=RelWithDebInfo \
 			-DCMAKE_INSTALL_PREFIX=/usr
 	cmake --build build
 }
 
 src_install() {
-	cd "${S}/buid" || die "no directory"
 	DESTDIR="${D}" cmake --build . --target install || die "install failed"
-
-	cd "${S}"
 	install -Dm644 LICENSE "${D}/usr/share/licenses/${D}/LICENSE"
 	install -Dm644 runtime/nvim.desktop "${D}/usr/share/applications/nvim.desktop"
 	install -Dm644 runtime/nvim.png "${D}/usr/share/pixmaps/nvim.png"
