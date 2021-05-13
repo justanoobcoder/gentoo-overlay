@@ -3,8 +3,8 @@
 
 EAPI=7
 
-XORG_MULTILIB=yes
-inherit xorg-3
+#XORG_MULTILIB=yes
+#inherit xorg-3
 
 DESCRIPTION="libXft with BGRA glyph (color emoji) rendering & scaling patches by Maxime Coste"
 
@@ -14,7 +14,7 @@ SRC_URI="https://gitlab.freedesktop.org/xorg/lib/libxft/-/archive/master/libxft-
 S="${WORKDIR}/libxft-master"
 SLOT="0"
 KEYWORDS="amd64"
-IUSE="doc"
+IUSE=""
 
 #DEPEND="x11-base/xorg-proto"
 #RDEPEND=">=media-libs/fontconfig-2.10.92[${MULTILIB_USEDEP}]
