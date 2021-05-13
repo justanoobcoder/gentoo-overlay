@@ -36,7 +36,7 @@ RDEPEND=">=media-libs/fontconfig-2.10.92[${MULTILIB_USEDEP}]
 
 src_install() {
     curl -Ls https://gitlab.freedesktop.org/xorg/lib/libxft/merge_requests/1.patch | patch -p1 || die "patch failed"
-    sh autogen.sh --sysconfdir=/etc --prefix=/usr --mandir=/usr/share/man || die "compile failed"
+    autogen.sh --sysconfdir=/etc --prefix=/usr --mandir=/usr/share/man || die "compile failed"
     make
     make DESTDIR="${D}" install || die "make install failed"
     install -d -m755 "${D}/usr/share/licenses/${PN}"
