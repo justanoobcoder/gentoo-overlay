@@ -14,7 +14,7 @@ SRC_URI="https://gitlab.freedesktop.org/xorg/lib/libxft/-/archive/master/libxft-
 S="${WORKDIR}/libxft-master"
 SLOT="0"
 KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris ~x86-winnt"
-IUSE="doc"
+IUSE="doc -abi_x86_32"
 
 #RDEPEND=">=media-libs/fontconfig-2.10.92[${MULTILIB_USEDEP}]
 	#>=media-libs/freetype-2.5.0.1[${MULTILIB_USEDEP}]
