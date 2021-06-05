@@ -3,13 +3,11 @@
   <repo quality="experimental" status="unofficial">
     <name>syaoran</name>
     <description lang="en">Personal overlay of syaoran that contains my needed patched and ebuilds</description>
-    <homepage>https://github.com/justanoobcoder/gentoo-overlay</homepage>
+    <homepage>https://gitlab.com/justanoobcoder/gentoo-overlay</homepage>
     <owner type="person">
       <email>syaorancode@gmail.com</email>
       <name>Nguyen Hong Hiep</name>
     </owner>
-    <source type="git">git://github.com/justanoobcoder/gentoo-overlay.git</source>
-    <source type="git">https://github.com/justanoobcoder/gentoo-overlay.git</source>
-    <feed>https://github.com/justanoobcoder/gentoo-overlay/commits/master.atom</feed>
+    <source type="git">https://gitlab.com/justanoobcoder/gentoo-overlay.git</source>
   </repo>
 </repositories>
