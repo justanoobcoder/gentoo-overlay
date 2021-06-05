@@ -6,12 +6,7 @@ EAPI=7
 DESCRIPTION="Jonaburg's picom fork with tryone144's dual_kawase blur and Ibhagwan's rounded corners, an X compositor (compton's fork)"
 HOMEPAGE="https://github.com/jonaburg/picom"
 
-if [[ ${PV} == 9999 ]]; then
-	inherit git-r3
-	EGIT_REPO_URI="https://github.com/jonaburg/picom"
-else
-	SRC_URI="https://github.com/jonaburg/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
-fi
+SRC_URI="https://github.com/jonaburg/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
  
 LICENSE="MIT"
 SLOT="0"
