@@ -9,13 +9,8 @@ inherit lua-single
 DESCRIPTION="Vim-fork focused on extensibility and agility (nightly version)."
 HOMEPAGE="https://neovim.io/"
 
-if [[ ${PV} == 9999 ]]; then
-	inherit git-r3
-	EGIT_REPO_URI="https://github.com/${PN}/${PN}.git"
-else
-	SRC_URI="https://github.com/${PN}/${PN}/archive/refs/tags/nightly.tar.gz -> ${P}.tar.gz"
-	S="${WORKDIR}/neovim-nightly"
-fi
+SRC_URI="https://github.com/${PN}/${PN}/archive/refs/tags/nightly.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/neovim-nightly"
 
 KEYWORDS="~amd64 ~arm ~arm64 x86 ~x64-macos"
 LICENSE="Apache-2.0 vim"
