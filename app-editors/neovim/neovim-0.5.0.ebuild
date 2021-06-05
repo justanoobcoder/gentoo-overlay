@@ -9,7 +9,7 @@ inherit lua-single
 DESCRIPTION="Vim-fork focused on extensibility and agility (nightly version)."
 HOMEPAGE="https://neovim.io/"
 
-SRC_URI="https://github.com/${PN}/${PN}/archive/refs/tags/nightly.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/${PN}/${PN}/archive/refs/tags/nightly.tar.gz"
 S="${WORKDIR}/neovim-nightly"
 
 KEYWORDS="~amd64 ~arm ~arm64 x86 ~x64-macos"
