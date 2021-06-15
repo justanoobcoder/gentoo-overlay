@@ -13,7 +13,7 @@ These are packages which are included in this overlay repository:
 ## How to use
 To install above packages, install `app-portage/layman` first, then run this command:
 ```
-sudo layman -o https://gitlab.com/justanoobcoder/gentoo-overlay/-/raw/master/repositories.xml -f -a syaoran
+sudo layman -o https://raw.githubusercontent.com/justanoobcoder/gentoo-overlay/master/repositories.xml -f -a syaoran
 ```
 After that, you can install those packages using `emerge`, for example:
 ```
@@ -29,4 +29,4 @@ sudo emerge --ask \=picom-8::syaoran
 + Use this repository at your own risk.
 
 ## Issue
-If there are any bugs, broken packages or you don't know how to use those packages, feel free to create an [issue](https://gitlab.com/justanoobcoder/gentoo-overlay/-/issues/new).
+If there are any bugs, broken packages or you don't know how to use those packages, feel free to create an [issue](https://github.com/justanoobcoder/gentoo-overlay/issues/new).
