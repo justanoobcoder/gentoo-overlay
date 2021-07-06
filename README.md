@@ -19,9 +19,9 @@ After that, you can install those packages using `emerge`, for example:
 ```
 sudo emerge --ask picom::syaoran
 ```
-To install a specific version, you can do like this to install `picom` version 8:
+To install a specific version, you can do like this:
 ```
-sudo emerge --ask \=picom-8::syaoran
+sudo emerge --ask \=brave-browser-1.25.72::syaoran
 ```
 
 ## Caution
