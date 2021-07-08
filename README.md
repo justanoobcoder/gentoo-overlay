@@ -3,7 +3,7 @@ This is my Gentoo overlay repository that contains needed packages (for me) whic
 
 ## Packages
 These are packages which are included in this overlay repository:
-+ app-editors/neovim: neovim nightly version - the lastest dev version (0.6.0)
++ app-editors/neovim: Gentoo repository has neovim but somehow its build gave me some errors so I made my own build.
 + app-i18n/ibus-bamboo: Vietnamese characters typing support
 + media-fonts/jetbrains-mono-nerd-fonts: Nerd Font patched version of JetBrains Mono
 + x11-misc/picom: picom fork which provides rounded corners, animation features when moving tiling windows
