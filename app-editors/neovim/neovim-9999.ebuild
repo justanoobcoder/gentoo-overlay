@@ -18,7 +18,6 @@ else
     KEYWORDS="~amd64 ~arm ~arm64 ~x86 ~x64-macos"
 fi
 
-KEYWORDS="~amd64 ~arm ~arm64 x86 ~x64-macos"
 LICENSE="Apache-2.0 vim"
 SLOT="0"
 IUSE="+lto +nvimpager +tui"
