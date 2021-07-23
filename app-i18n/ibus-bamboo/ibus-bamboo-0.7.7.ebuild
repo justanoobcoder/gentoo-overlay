@@ -7,10 +7,10 @@ DESCRIPTION="A Vietnamese IME for IBus"
 HOMEPAGE="https://github.com/BambooEngine"
 
 if [[ ${PV} == 9999 ]]; then
-	inherit git-r3
-	EGIT_REPO_URI="https://github.com/BambooEngine/ibus-bamboo.git"
+    inherit git-r3
+    EGIT_REPO_URI="https://github.com/BambooEngine/ibus-bamboo.git"
 else
-	SRC_URI="https://github.com/BambooEngine/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+    SRC_URI="https://github.com/BambooEngine/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 fi
  
 LICENSE="GPL-3"
