@@ -11,11 +11,11 @@ if [[ ${PV} == 9999 ]]; then
     EGIT_REPO_URI="https://github.com/BambooEngine/ibus-bamboo.git"
 else
     SRC_URI="https://github.com/BambooEngine/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+    KEYWORDS="~amd64"
 fi
  
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64"
 IUSE=""
  
 DEPEND="app-i18n/ibus"
