@@ -8,6 +8,8 @@ These are packages which are included in this overlay repository:
 + media-fonts/jetbrains-mono-nerd-fonts: Nerd Font patched version of JetBrains Mono
 + x11-misc/picom: picom fork which provides rounded corners, animation features when moving tiling windows
 + app-shells/zsh-autosuggestions: Fish-like fast/unobtrusive autosuggestions for zsh
++ app-shells/zsh-vim-mode: Friendly bindings for zsh's vim mode
++ app-shells/zsh-system-clipboard: System clipboard key bindings for Zsh Line Editor with vi mode
 + www-client/brave-browser: Brave browser
 
 ## How to use
