@@ -3,7 +3,7 @@
  
 EAPI=7
  
-DESCRIPTION="System clipboard key bindings for Zsh Line Editor with vi mode."
+DESCRIPTION="Friendly bindings for zsh's vim mode."
 HOMEPAGE="https://github.com/softmoth/zsh-vim-mode"
 
 inherit git-r3
