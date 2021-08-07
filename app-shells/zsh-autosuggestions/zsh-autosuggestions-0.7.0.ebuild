@@ -20,8 +20,7 @@ source /usr/share/zsh/site-functions/zsh-autosuggestions/zsh-autosuggestions.zsh
 at the end of your .zshrc file"
 
 src_install() {
-    install -vDm 644 ${PN}{,.plugin}.zsh \
-    -t "${ED}/usr/share/zsh/site-functions/${PN}/"
-    install -vDm 644 {CHANGELOG,README}.md \
-      -t "${ED}/usr/share/doc/${PN}/"
+    install -vDm 644 ${PN}{,.plugin}.zsh -t "${ED}/usr/share/zsh/plugins/${PN}/"
+    install -vDm 644 {CHANGELOG,README}.md -t "${ED}/usr/share/doc/${PN}/"
+    install -vDm 644 LICENSE "${ED}/usr/share/licenses/${PN}/LICENSE"
 }
