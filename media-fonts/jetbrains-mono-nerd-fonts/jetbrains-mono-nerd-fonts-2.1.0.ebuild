@@ -4,7 +4,7 @@
 EAPI=7
  
 DESCRIPTION="A Nerd Font patched version of JetBrains Mono."
-HOMEPAGE="https://github.com/ryanoasis/nerd-fonts"
+HOMEPAGE="https://www.nerdfonts.com"
 
 _PAC_NAME="JetBrainsMono"
 SRC_URI="https://github.com/ryanoasis/nerd-fonts/releases/download/v${PV}/${_PAC_NAME}.zip"
@@ -26,5 +26,5 @@ src_unpack() {
 src_install() {
     install -dm755 "${D}/usr/share/fonts/TTF"
     find ${S}/ -iname "*.ttf" -not -iname "*Windows Compatible.ttf" \
-	    -execdir install -m644 {} "${D}/usr/share/fonts/TTF/{}" \;
+        -execdir install -m644 {} "${D}/usr/share/fonts/TTF/{}" \;
 }
