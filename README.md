@@ -11,6 +11,7 @@ These are packages which are included in this overlay repository:
 + app-shells/zsh-vim-mode: Friendly bindings for zsh's vim mode
 + app-shells/zsh-system-clipboard: System clipboard key bindings for Zsh Line Editor with vi mode
 + www-client/brave-browser: Brave browser
++ app-admin/doas: A portable fork of the OpenBSD `doas` command.
 
 ## How to use
 To install above packages, install `app-portage/layman` first, then run this command:
