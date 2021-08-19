@@ -16,11 +16,11 @@ if [[ ${PV} == 9999 ]]; then
 else
     SRC_URI="https://github.com/justanoobcoder/${MY_PN}/archive/v${PV}.tar.gz -> ${MY_P}.tar.gz"
     S="${WORKDIR}"/${MY_P}
+    KEYWORDS="amd64 arm arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 fi
 
 LICENSE="ISC"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="pam persist"
 
 BDEPEND="virtual/yacc"
