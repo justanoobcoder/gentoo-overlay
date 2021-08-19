@@ -9,8 +9,14 @@ MY_PN=OpenDoas
 MY_P=${MY_PN}-${PV}
 DESCRIPTION="Run commands as super/another user (alt sudo) (unofficial port from OpenBSD)"
 HOMEPAGE="https://github.com/justanoobcoder/OpenDoas"
-SRC_URI="https://github.com/justanoobcoder/${MY_PN}/archive/v${PV}.tar.gz -> ${MY_P}.tar.gz"
-S="${WORKDIR}"/${MY_P}
+
+if [[ ${PV} == 9999 ]]; then
+    inherit git-r3
+    EGIT_REPO_URI="https://github.com/justanoobcoder/OpenDoas"
+else
+    SRC_URI="https://github.com/justanoobcoder/${MY_PN}/archive/v${PV}.tar.gz -> ${MY_P}.tar.gz"
+    S="${WORKDIR}"/${MY_P}
+fi
 
 LICENSE="ISC"
 SLOT="0"
