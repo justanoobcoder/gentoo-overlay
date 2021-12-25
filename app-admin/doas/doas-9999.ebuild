@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit toolchain-funcs
+inherit pam toolchain-funcs
 
 MY_PN=OpenDoas
 MY_P=${MY_PN}-${PV}
@@ -44,6 +44,13 @@ src_configure() {
     || die "Configure failed"
 }
 
+src_install() {
+    default
+    if use pam; then
+    	pamd_mimic system-auth doas auth account session
+    fi
+}
+
 pkg_postinst() {
     if use persist ; then
     	ewarn "The persist/timestamp feature is disabled by default upstream."
@@ -53,5 +60,6 @@ pkg_postinst() {
     if [[ -z "${REPLACING_VERSIONS}" ]] ; then
     	elog "By default, doas will deny all actions."
     	elog "You need to create your own custom configuration at ${EROOT}/etc/doas.conf."
+        elog "See https://wiki.gentoo.org/wiki/Doas for guidance."
     fi
 }
