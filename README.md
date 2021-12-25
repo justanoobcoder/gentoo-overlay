@@ -7,9 +7,10 @@ These are packages which are included in this overlay repository:
 + app-i18n/ibus-bamboo: Vietnamese characters typing support.
 + media-fonts/jetbrains-mono-nerd-fonts: Nerd Font patched version of JetBrains Mono.
 + x11-misc/picom: picom fork which provides rounded corners, animation features when moving tiling windows.
++ x11-misc/greenclip: Simple clipboard manager to be integrated with rofi.
++ x11-misc/polybar: Polybar with dwm module.
 + www-client/brave-browser: Brave browser
 + app-admin/doas: A portable fork of the OpenBSD `doas` command.
-+ x11-misc/greenclip: Simple clipboard manager to be integrated with rofi.
 
 ## How to use
 To install above packages, install `app-portage/layman` first, then run this command:
