@@ -17,7 +17,7 @@ EGIT_REPO_URI="https://github.com/mihirlad55/polybar-dwm-module"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE="alsa curl doc i3wm +dwm ipc mpd network pulseaudio"
+IUSE="alsa curl doc i3wm +dwm +ipc mpd network pulseaudio"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
