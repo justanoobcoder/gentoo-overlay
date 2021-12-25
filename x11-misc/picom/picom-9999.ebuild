@@ -3,7 +3,7 @@
  
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8,9} )
+PYTHON_COMPAT=( python3_{8,9} )
 inherit meson python-any-r1 virtualx xdg
 
 DESCRIPTION="Jonaburg's picom fork with tryone144's dual_kawase blur and Ibhagwan's rounded corners, an X compositor (compton's fork)"
@@ -16,9 +16,9 @@ else
 	SRC_URI="https://github.com/jonaburg/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 fi
  
-LICENSE="MIT"
+LICENSE="MPL-2.0 MIT"
 SLOT="0"
-KEYWORDS="amd64 ~ppc64 x84"
+KEYWORDS="amd64 ~ppc64 ~riscv x84"
 IUSE="+config-file dbus +doc +drm opengl pcre test"
 
 REQUIRED_USE="test? ( dbus )" # avoid "DBus support not compiled in!"
@@ -59,11 +59,28 @@ BDEPEND="virtual/pkgconfig
 	test? ( $(python_gen_any_dep 'dev-python/xcffib[${PYTHON_USEDEP}]') )
 "
 
-src_compile() {
-    meson --buildtype=release . build --prefix=/usr -Dwith_docs=true || die "meson build failed"
-    ninja -C build || die "ninja build failed"
+DOCS=( README.md picom.sample.conf )
+
+python_check_deps() {
+    has_version -b "dev-python/xcffib[${PYTHON_USEDEP}]"
 }
 
-src_install() {
-    DESTDIR=${D} ninja -C build install || die "ninja build install failed"
+pkg_setup() {
+    use test && python-any-r1_pkg_setup
+}
+
+src_configure() {
+    local emesonargs=(
+        $(meson_use config-file config_file)
+        $(meson_use dbus)
+        $(meson_use doc with_docs)
+        $(meson_use opengl)
+        $(meson_use pcre regex)
+    )
+
+    meson_src_configure
+}
+
+src_test() {
+    virtx "${S}/tests/run_tests.sh" "${BUILD_DIR}/src/${PN}"
 }
