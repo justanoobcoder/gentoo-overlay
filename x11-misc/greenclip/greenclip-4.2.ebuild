@@ -30,5 +30,5 @@ src_install() {
 
 pkg_postinst() {
     ewarn 'Run `greenclip daemon` to start clipboard daemon'
-    ewarn "For more information about greenclip, please visit ${HOMEPAGE}"
+    elog "For more information about greenclip, please visit ${HOMEPAGE}"
 }
