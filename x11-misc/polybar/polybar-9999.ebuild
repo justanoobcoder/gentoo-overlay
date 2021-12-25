@@ -60,7 +60,6 @@ src_configure() {
     	-DENABLE_MPD="$(usex mpd)"
     	-DENABLE_NETWORK="$(usex network)"
     	-DENABLE_PULSEAUDIO="$(usex pulseaudio)"
-        -DBUILD_SHELL="OFF"
     )
     
     cmake_src_configure
